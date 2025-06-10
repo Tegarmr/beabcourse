@@ -44,7 +44,7 @@ exports.register = async (req, res) => {
     });
 
     // Membuat link verifikasi
-    const verifyLink = `http://localhost:5000/api/auth/verify-email?token=${verification_token}`;
+    const verifyLink = `https://beabcourse-production.up.railway.app/api/auth/verify-email?token=${verification_token}`;
     const html = `
       <p>Halo ${username},</p>
       <p>Silakan klik link berikut untuk verifikasi email Anda:</p>
