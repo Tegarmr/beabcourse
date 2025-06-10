@@ -119,7 +119,7 @@ exports.login = async (req, res) => {
       httpOnly: true, // Prevent access to the cookie from JavaScript
       secure: process.env.NODE_ENV === "production", // Use secure cookies in production
       maxAge: rememberMe ? 7 * 24 * 60 * 60 * 1000 : 60 * 60 * 1000, // 1 week if rememberMe, 1 hour otherwise
-      // sameSite: "Strict", // Prevents CSRF attacks
+      sameSite: "none", // Prevents CSRF attacks
     };
     res.cookie("token", token, options);
     res.status(200).json({
