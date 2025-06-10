@@ -189,7 +189,7 @@ exports.loginWithGoogle = async (req, res) => {
      const options = {
       maxAge: 60 * 60 * 1000, // 1 jam
       path: "/",
-      domain: "localhost",
+      domain: "ab-course-fe-go-live.vercel.app",
     };
 
     res.cookie("token", token, options);
