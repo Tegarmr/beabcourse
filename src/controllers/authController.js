@@ -140,8 +140,23 @@ exports.login = async (req, res) => {
 };
 
 exports.logout = (req, res) => {
-  // Hapus token dari cookies
-  res.clearCookie("token");
+  // Opsi ini HARUS cocok dengan opsi yang digunakan saat mengatur cookie di fungsi login
+  const options = {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production", // Wajib true jika sameSite: 'none'
+    sameSite: "none", // Penting untuk request cross-origin (misal: backend di Railway, frontend di Vercel)
+    
+    // Anda menggunakan domain ini di loginWithGoogle, jadi wajib ada di sini juga
+    // Jika tidak, cookie tidak akan terhapus.
+    domain: "ab-course-fe-go-live.vercel.app", 
+    
+    // Path default biasanya '/', ini untuk memastikan cakupannya benar
+    path: "/", 
+  };
+
+  // Hapus cookie 'token' dengan memberikan opsi yang sesuai
+  res.clearCookie("token", options);
+  
   res.status(200).json({ message: "Logout berhasil" });
 };
 
