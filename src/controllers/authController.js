@@ -73,7 +73,7 @@ exports.verifyEmail = async (req, res) => {
         .json({ message: "Token tidak valid atau sudah dipakai" });
 
     // res.status(200).json({ message: 'Email berhasil diverifikasi' });
-    res.redirect("http://localhost:5173/login");
+    res.redirect("https://ab-course-fe-go-live.vercel.app/login");
   } catch (err) {
     res.status(500).json({ message: "Gagal memverifikasi email", error: err });
   }
@@ -366,7 +366,7 @@ exports.forgotPassword = async (req, res) => {
     await User.updateResetToken(email, resetToken, resetTokenExpiration);
 
     // Kirim email dengan link reset password
-    const resetLink = `http://localhost:5173/reset-password?token=${resetToken}`;
+    const resetLink = `https://ab-course-fe-go-live.vercel.app/reset-password?token=${resetToken}`;
     const html = `
       <p>Halo,</p>
       <p>Silakan klik link berikut untuk mereset password Anda:</p>

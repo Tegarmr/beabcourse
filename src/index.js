@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.json({ limit: '10mb' })); // atau bahkan 20mb jika perlu
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:3000"],
+  origin: ["https://ab-course-fe-go-live.vercel.app", "http://localhost:5173", "http://localhost:3000"],
   credentials: true,
 }));
 
