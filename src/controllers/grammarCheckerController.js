@@ -7,7 +7,7 @@ const checkGrammar = async (req, res) => {
     const { text } = req.body;
     const { userId } = req.user
 
-    const response = await axios.post("http://localhost:8000/correct", {
+    const response = await axios.post("https://web-production-748c7.up.railway.app/correct", {
       text,
     });
 
